@@ -1,0 +1,19 @@
+datasets:
+  - json_path: GUI-Actor-Data/uground_bbox.json
+    images_folder: GUI-Actor-Data/Uground/images/
+    sampling_strategy: "all"
+  - json_path: GUI-Actor-Data/guienv_bbox.json
+    images_folder: GUI-Actor-Data/guienvs/images/
+    sampling_strategy: "all"
+  - json_path: GUI-Actor-Data/guiact_bbox.json
+    images_folder: GUI-Actor-Data/GUIAct/web_imgs/
+    sampling_strategy: "all"
+  - json_path: GUI-Actor-Data/amex_bbox.json
+    images_folder: GUI-Actor-Data/screenshots/
+    sampling_strategy: "all"
+  - json_path: GUI-Actor-Data/androidcontrol_bbox.json
+    images_folder: GUI-Actor-Data/AndroidControl/tfrecord/images/
+    sampling_strategy: "all"
+  - json_path: GUI-Actor-Data/wave_ui_bbox.json
+    images_folder: GUI-Actor-Data/Wave-UI/images_fixed/
+    sampling_strategy: "all"
