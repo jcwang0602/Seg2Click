@@ -9,6 +9,7 @@ app_file: app.py
 python_version: "3.12"
 short_description: Pixel-level action masks for GUI visual grounding
 startup_duration_timeout: 30m
+suggested_hardware: zero-a10g
 ---
 
 # Seg2Click Demo
