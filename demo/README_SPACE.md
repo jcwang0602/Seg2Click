@@ -1,5 +1,5 @@
 ---
-title: Seg2Click Demo
+title: Seg2Click
 emoji: 🖱️
 colorFrom: blue
 colorTo: green
@@ -12,7 +12,7 @@ startup_duration_timeout: 30m
 suggested_hardware: zero-a10g
 ---
 
-# Seg2Click Demo
+# Seg2Click
 
 [Seg2Click](https://github.com/jcwang0602/Seg2Click) turns a GUI screenshot and a natural-language
 instruction into a pixel-level executable action mask and click point. This Space runs the lightweight public
