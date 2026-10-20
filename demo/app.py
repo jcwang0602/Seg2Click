@@ -14,8 +14,15 @@ from PIL import Image, ImageDraw
 
 from seg2click.predictor import Seg2ClickPredictor
 
-MODEL_ID = "jcwang0602/Seg2Click-Qwen3.5-9B"
+MODEL_ID = "jcwang0602/Seg2Click-Qwen3.5-0.8B"
 MASK_THRESHOLD = 0.5
+EXAMPLES = [
+    ["examples/vscode_refresh.png", "Refresh the file explorer."],
+    ["examples/excel_sort.png", "open the sort dialog"],
+    ["examples/word_insert_picture.png", "the pictures inserting function in word"],
+    ["examples/photoshop_shape_mode.png", "change to shape mode"],
+    ["examples/macos_cancel_extraction.png", "cancel extraction"],
+]
 
 print(f"Downloading {MODEL_ID} ...", flush=True)
 checkpoint_dir = snapshot_download(MODEL_ID)
@@ -90,7 +97,7 @@ def predict_click(screenshot: Image.Image, instruction: str):
 
 CSS = "#app-container { max-width: 1200px; margin: 0 auto; }"
 
-with gr.Blocks(title="Seg2Click — GUI Visual Grounding", css=CSS) as demo:
+with gr.Blocks(title="Seg2Click — GUI Visual Grounding") as demo:
     gr.Markdown(
         """
         # 🖱️ Seg2Click: Pixel-Level Action Masks for GUI Visual Grounding
@@ -98,7 +105,7 @@ with gr.Blocks(title="Seg2Click — GUI Visual Grounding", css=CSS) as demo:
         Upload a GUI screenshot and describe what you want to click. Seg2Click predicts the complete
         executable region as a pixel-level action mask, then returns its centroid as the click point.
 
-        This demo runs [Seg2Click-Qwen3.5-9B](https://huggingface.co/jcwang0602/Seg2Click-Qwen3.5-9B).
+        This demo runs [Seg2Click-Qwen3.5-0.8B](https://huggingface.co/jcwang0602/Seg2Click-Qwen3.5-0.8B).
         [Paper](https://arxiv.org/abs/2610.16234) · [Code](https://github.com/jcwang0602/Seg2Click)
         """
     )
@@ -119,6 +126,16 @@ with gr.Blocks(title="Seg2Click — GUI Visual Grounding", css=CSS) as demo:
             output_image = gr.Image(type="pil", label="Action mask and click point", height=440)
             output_report = gr.Markdown()
 
+    gr.Markdown("## Examples\nClick an example to run fresh model inference on the selected screenshot.")
+    gr.Examples(
+        examples=EXAMPLES,
+        inputs=[screenshot_input, instruction_input],
+        outputs=[output_image, output_report],
+        fn=predict_click,
+        cache_examples=False,
+        run_on_click=True,
+    )
+
     predict_button.click(
         predict_click,
         inputs=[screenshot_input, instruction_input],
@@ -131,4 +148,4 @@ with gr.Blocks(title="Seg2Click — GUI Visual Grounding", css=CSS) as demo:
         outputs=[output_image, output_report],
     )
 
-demo.launch(theme=gr.themes.Citrus())
+demo.launch(theme=gr.themes.Citrus(), css=CSS)

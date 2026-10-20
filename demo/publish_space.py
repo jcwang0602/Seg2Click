@@ -24,6 +24,7 @@ def main() -> None:
         shutil.copy2(demo_dir / "app.py", staging_dir / "app.py")
         shutil.copy2(demo_dir / "requirements.txt", staging_dir / "requirements.txt")
         shutil.copy2(demo_dir / "README_SPACE.md", staging_dir / "README.md")
+        shutil.copytree(demo_dir / "examples", staging_dir / "examples")
         shutil.copytree(repository_root / "seg2click", staging_dir / "seg2click")
         if not args.skip_create:
             try:

@@ -15,10 +15,13 @@ suggested_hardware: zero-a10g
 # Seg2Click Demo
 
 [Seg2Click](https://github.com/jcwang0602/Seg2Click) turns a GUI screenshot and a natural-language
-instruction into a pixel-level executable action mask and click point. This Space runs the public
-[Seg2Click-Qwen3.5-9B](https://huggingface.co/jcwang0602/Seg2Click-Qwen3.5-9B) checkpoint with the official
+instruction into a pixel-level executable action mask and click point. This Space runs the lightweight public
+[Seg2Click-Qwen3.5-0.8B](https://huggingface.co/jcwang0602/Seg2Click-Qwen3.5-0.8B) checkpoint with the official
 inference path.
 
-Seg2Click-9B achieves **92.1 / 94.1 / 55.2** Hit@1 on ScreenSpot / ScreenSpot-v2 / ScreenSpot-Pro.
+Seg2Click-0.8B achieves **87.4 / 89.9 / 44.3** Hit@1 on ScreenSpot / ScreenSpot-v2 / ScreenSpot-Pro.
+
+The example screenshots come from [ScreenSpot-Pro](https://huggingface.co/datasets/likaixin/ScreenSpot-Pro)
+and are evaluated with fresh model inference whenever an example is clicked.
 
 Read the [paper](https://arxiv.org/abs/2610.16234) for method and evaluation details.
