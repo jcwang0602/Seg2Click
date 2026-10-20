@@ -10,6 +10,12 @@
   <img src="assets/teaser.png" width="95%">
 </p>
 
+## News
+
+- **2026-10-20:** The [Seg2Click interactive demo](https://huggingface.co/spaces/jcwang0602/Seg2Click-Demo)
+  is now live on Hugging Face Spaces. Upload a GUI screenshot, enter an instruction, and inspect the predicted
+  pixel-level action mask and executable click point.
+
 **Left:** ScreenSpot-Pro accuracy versus number of training screenshots; marker area denotes backbone size. Seg2Click and GUI-Actor share the same ~1M-screenshot grounding data.
 **Right:** Qwen3.5-4B predicts the action mask and click for "run the code" (a 55×49 px toolbar icon).
 
